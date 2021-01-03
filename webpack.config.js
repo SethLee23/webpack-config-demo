@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-01-03 13:32:20
+ * @LastEditTime: 2021-01-03 16:47:25
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \webpack-cli-demo\webpack.config.js
+ */
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
@@ -5,7 +13,7 @@ module.exports = {
     mode: 'development',//模式 development/production
     entry: {
         index: path.resolve(__dirname, './src/js/index.js'),
-        // demo: path.resolve(__dirname, './src/js/demo.js'),
+        demo: path.resolve(__dirname, './src/js/demo.js'),
     },// 页面入口: 多页面使用对象，单页面直接配置
     output: {
         path: path.resolve(__dirname + '/dist'), // 寻找文件夹
@@ -53,7 +61,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, './src/index.html'),
-            chunks: ['index'],//入口文件
+            chunks: ['index', 'demo'],//入口文件
             excludeChunks: ['node_modules']
             // chunks: ['demo','index']
         })
